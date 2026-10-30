@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electricity-Saving Home</title>
+</head>
+<body>
+  <div class="app">
+    <main class="stage">
+      <div id="scene"></div>
+      <header class="stage-title">
+        <h1>Living room</h1>
+        <p>Tap the light, fan or TV in the room. Drag to look around.</p>
+      </header>
+    </main>
+
+    <aside class="bill" aria-label="Electricity bill">
+      <div class="bill-head">
+        <h2>This month's bill</h2>
+        <p>Based on 30 days of daily use</p>
+      </div>
+
+      <div class="load">
+        <div class="load-top">
+          <span>Drawing right now</span>
+          <strong id="watts">0 W</strong>
+        </div>
+        <div class="load-track"><div class="load-fill" id="loadFill"></div></div>
+      </div>
+
+      <table class="items">
+        <thead>
+          <tr><th>Appliance</th><th>Per day</th><th>Per month</th></tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+
+      <div class="upgrade">
+        <button class="item-btn" id="efficient" role="switch" aria-checked="false">
+          <span class="switch"></span>
+          <span><span class="item-name">Efficient appliances</span>
+          <span class="item-sub" id="effNote"></span></span>
+        </button>
+      </div>
+
+      <dl class="totals">
+        <div><dt>Daily use</dt><dd id="daily">0 kWh</dd></div>
+        <div><dt>Monthly use</dt><dd id="monthly">0 kWh</dd></div>
+        <div class="rate-row">
+          <dt><label for="rate">Rate per kWh</label></dt>
+          <dd><span class="rupee">₹</span><input id="rate" type="number" min="0" step="0.5" value="8" /></dd>
+        </div>
+        <div class="grand"><dt>Amount due</dt><dd id="cost">₹0</dd></div>
+      </dl>
+      <p class="saved" id="saved"></p>
+
+      <section class="budget">
+        <div class="budget-top">
+          <label for="budget">Monthly budget</label>
+          <span><span class="rupee">₹</span><input id="budget" type="number" min="0" step="10" value="200" /></span>
+        </div>
+        <div class="load-track"><div class="budget-fill" id="budgetFill"></div></div>
+        <p class="budget-msg" id="budgetMsg"></p>
+        <p class="co2" id="co2line">Emits about <strong id="co2">0 kg CO₂</strong> a month.</p>
+      </section>
+
+      <section class="tips">
+        <h3>How to use less</h3>
+        <ul id="tips"></ul>
+      </section>
+
+      <button class="reset" id="reset" type="button">Reset everything</button>
+    </aside>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
